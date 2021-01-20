@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
+    "minigrep",
     "traits",
     "standard",
     "vector",
