@@ -7,6 +7,10 @@ impl Vector {
     pub fn new(data: String) -> Vector {
         Vector { data }
     }
+
+    pub fn pop(&self) -> &String {
+        &self.data
+    }
 }
 
 #[cfg(test)]
@@ -19,4 +23,3 @@ mod tests {
         assert_eq!("Test", v.data);
     }
 }
-

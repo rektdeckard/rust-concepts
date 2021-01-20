@@ -17,7 +17,9 @@ impl Temperature {
         (self.celcius * CELCIUS_FAHRENHEIT_RATIO) + CELCIUS_FAHRENHEIT_OFFSET
     }
 
-    fn in_celcius(&self) -> f64 { self.celcius }
+    fn in_celcius(&self) -> f64 {
+        self.celcius
+    }
 
     fn in_kelvin(&self) -> f64 {
         self.celcius + CELCIUS_KELVIN_OFFSET
@@ -41,8 +43,8 @@ impl From<&str> for Temperature {
                         (temp - CELCIUS_FAHRENHEIT_OFFSET) * (1.0 / CELCIUS_FAHRENHEIT_RATIO)
                     } else if *scale == "k" || *scale == "K" {
                         temp - CELCIUS_KELVIN_OFFSET
-                    } else { 
-                        temp 
+                    } else {
+                        temp
                     },
                 })
                 .unwrap_or_default(),
