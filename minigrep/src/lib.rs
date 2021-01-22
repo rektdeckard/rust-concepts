@@ -9,14 +9,14 @@ use std::error::Error;
 use std::fs;
 
 /// Config arguments
-/// 
+///
 /// Indicate configuration parameters for searching text. Arguments are
 /// positional, and currently the case-sensitivity flag must be set with
 /// an environment variable, though this should be updated to take a
 /// command-line flag.
 ///
 /// # Examples
-/// 
+///
 /// ```
 /// let config = minigrep::Config {
 ///     query: "the".to_string(),
@@ -26,7 +26,7 @@ use std::fs;
 ///
 /// assert_eq!(config.filename, "poem.txt");
 /// ```
-/// 
+///
 pub struct Config {
     pub query: String,
     pub filename: String,
@@ -74,7 +74,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    contents.lines().filter(|line| line.contains(query)).collect()
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
