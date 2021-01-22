@@ -4,24 +4,24 @@ const CELCIUS_KELVIN_OFFSET: f64 = 273.15;
 const CELCIUS_FAHRENHEIT_RATIO: f64 = 9.0 / 5.0;
 const CELCIUS_FAHRENHEIT_OFFSET: f64 = 32.0;
 
-struct Temperature {
+pub struct Temperature {
     celcius: f64,
 }
 
 impl Temperature {
-    fn new(celcius: f64) -> Temperature {
+    pub fn new(celcius: f64) -> Temperature {
         Temperature { celcius }
     }
 
-    fn in_fahrenheit(&self) -> f64 {
+    pub fn in_fahrenheit(&self) -> f64 {
         (self.celcius * CELCIUS_FAHRENHEIT_RATIO) + CELCIUS_FAHRENHEIT_OFFSET
     }
 
-    fn in_celcius(&self) -> f64 {
+    pub fn in_celcius(&self) -> f64 {
         self.celcius
     }
 
-    fn in_kelvin(&self) -> f64 {
+    pub fn in_kelvin(&self) -> f64 {
         self.celcius + CELCIUS_KELVIN_OFFSET
     }
 }
@@ -82,8 +82,20 @@ mod tests {
     }
 
     #[test]
-    fn convert_temp() {
+    fn in_fahrenheit() {
         let temp = Temperature::new(35.0);
         assert_eq!(95.0, temp.in_fahrenheit());
+    }
+
+    #[test]
+    fn in_kelvin() {
+        let temp = Temperature::new(50.0);
+        assert_eq!(323.15, temp.in_kelvin())
+    }
+
+    #[test]
+    fn in_celcius() {
+        let temp = Temperature::new(42.0);
+        assert_eq!(42.0, temp.in_celcius());
     }
 }
