@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
+    "linked-list",
     "minigrep",
     "traits",
     "standard",
