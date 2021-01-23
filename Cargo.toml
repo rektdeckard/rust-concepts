@@ -4,6 +4,7 @@ members = [
     "linked-list",
     "minigrep",
     "traits",
+    "smart-pointers",
     "standard",
     "vector",
 ]
